@@ -103,7 +103,10 @@ class ParamAttack {
         this.stop = stop;
         this.config = config;
         this.baseRequestResponse = baseRequestResponse;
-        targetURL = baseRequestResponse.getHttpService().getHost();
+        // Print hostname
+        //targetURL = baseRequestResponse.getHttpService().getHost();
+        // Print Full URL
+        targetURL = Utilities.analyzeRequest(baseRequestResponse).getUrl().toString();
         params = calculatePayloads(baseRequestResponse, paramGrabber, type);
         valueParams = new ArrayList<>();
         for(int i = 0; i< params.size(); i++) {
